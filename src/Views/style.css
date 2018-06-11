@@ -1,0 +1,109 @@
+#garden{
+    -fx-background-image: url("../Resources/background.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: stretch;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+
+#sickleButton:pressed #pane:pressed{
+
+}
+
+#harvestButton{
+
+
+    -fx-graphic: url(../Resources/click.png);
+    position: absolute;
+    -fx-graphic-size: stretch;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+
+#harvestButton:hover{
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+     -fx-cursor: hand;}
+
+#harvestButton:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 0,0,0,1 );
+    -fx-padding: 5,5,5,5;
+
+
+}
+
+
+#pane{
+    -fx-background-image: url(../Resources/sicklebutton.png);
+
+    -fx-background-size: 325 90;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+#pane:hover{
+    -fx-effect:dropshadow(gaussian, rgba(0, 8, 29, 1), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#pane:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 30,0,0,1 );
+
+
+}
+#pane:disabled {
+    -fx-opacity: 0.6;
+}
+#pane:pressed #sickleUpCostLabel #sickleIncomeLabel #sickleIncomeLabel {
+    -fx-padding: 10 20 10 20;
+}
+
+#farmerButtonPane{
+
+    -fx-background-image: url(../Resources/farmerbutton.png);
+    -fx-background-size: 325 90;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+
+}
+#farmerButtonPane:hover{
+    -fx-effect:dropshadow(gaussian, rgba(0, 8, 29, 1), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#farmerButtonPane:pressed{
+    -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 30,0,0,1 );
+}
+#farmerButtonPane:disabled{
+    -fx-opacity: 0.6;
+}
+
+#gardenerButtonPane{
+
+    -fx-background-image: url(../Resources/garedenerbutton.png);
+    -fx-background-size: 325 90;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+
+}
+#gardenerButtonPane:hover{
+    -fx-effect:dropshadow(gaussian, rgba(0, 8, 29, 1), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#gardenerButtonPane:pressed{
+    -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 30,0,0,1 );
+}
+#gardenerButtonPane:disabled{
+    -fx-opacity: 0.6;
+}
+
+
+
+
+
+
+
+
+

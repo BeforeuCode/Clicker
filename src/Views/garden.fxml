@@ -12,13 +12,20 @@
 
           <effect>
          <Glow />
-      </effect></Button>
+      </effect>
+      <tooltip>
+         <Tooltip text="Harvest the apples to get food">
+            <font>
+               <Font name="pix PixelFJVerdana12pt" size="10.0" />
+            </font>
+         </Tooltip>
+      </tooltip></Button>
       <Text layoutX="355.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food: " wrappingWidth="160.13671875">
           <font>
               <Font name="pix PixelFJVerdana12pt" size="27.0" />
           </font>
       </Text>
-      <Text fx:id="foodLabel" layoutX="496.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="244.89453125">
+      <Text fx:id="foodLabel" layoutX="494.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="244.89453125">
           <font>
               <Font name="pix PixelFJVerdana12pt" size="22.0" />
           </font>
@@ -30,7 +37,7 @@
                <Font name="pix PixelFJVerdana12pt" size="12.0" />
             </font>
          </Text>
-         <Text fx:id="sickleUpCostLabel" fill="WHITE" layoutX="131.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="176.136717826128">
+         <Text fx:id="sickleUpCostLabel" fill="WHITE" layoutX="131.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="176.136717826128">
             <font>
                <Font name="pix PixelFJVerdana12pt" size="10.0" />
             </font>
@@ -50,24 +57,24 @@
                <Font name="pix PixelFJVerdana12pt" size="10.0" />
             </font>
          </Text>
-         <Text fx:id="sickleIncomeLabel" fill="WHITE" layoutX="156.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="160.13671883940697">
+         <Text fx:id="sickleIncomeLabel" fill="WHITE" layoutX="156.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="160.13671883940697">
             <font>
                <Font name="pix PixelFJVerdana12pt" size="10.0" />
             </font>
          </Text>
-         <Button id="sickleButton" fx:id="sickleButton" ellipsisString="" mnemonicParsing="false" onMouseClicked="#onSickleButtonClicked" opacity="0.0" prefHeight="84.0" prefWidth="325.0" stylesheets="@style.css">
+         <Button id="sickleButton" fx:id="sickleButton" ellipsisString="" mnemonicParsing="false" onMouseClicked="#onSickleButtonClicked" opacity="0.0" prefHeight="83.0" prefWidth="319.0" stylesheets="@style.css">
             <tooltip>
-               <Tooltip autoHide="true" opacity="0.8" text="Sickle is very handy to collect fruit. Every 10 levels increse you income per click x2">
+               <Tooltip autoHide="true" opacity="0.8" text="Sickle is very handy to collect fruit. Every 25 levels increse you income per click x2">
                   <font>
                      <Font name="pix PixelFJVerdana12pt" size="8.0" />
                   </font>
                </Tooltip>
-            </tooltip></Button>
+            </tooltip>
+         </Button>
       </children>
    </AnchorPane>
    <AnchorPane fx:id="farmerButtonPane" disable="true" layoutX="14.0" layoutY="112.0" onMouseClicked="#onFarmerButtonClicked" prefHeight="91.0" prefWidth="338.0" stylesheets="@style.css">
       <children>
-         <Button fx:id="farmerButton" disable="true" mnemonicParsing="false" prefHeight="91.0" prefWidth="325.0" stylesheets="@style.css" text="Button" visible="false" />
          <Text fill="#016822" layoutX="81.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer lvl." wrappingWidth="116.13671875">
             <font>
                <Font name="pix PixelFJVerdana12pt" size="12.0" />
@@ -88,7 +95,7 @@
                <Font name="pix PixelFJVerdana12pt" size="12.0" />
             </font>
          </Text>
-         <Text fx:id="farmerUpCostLabel" fill="WHITE" layoutX="128.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="100" wrappingWidth="176.13671439886093">
+         <Text fx:id="farmerUpCostLabel" fill="WHITE" layoutX="128.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60" wrappingWidth="176.13671439886093">
             <font>
                <Font name="pix PixelFJVerdana12pt" size="10.0" />
             </font>
@@ -98,27 +105,90 @@
                <Font name="pix PixelFJVerdana12pt" size="10.0" />
             </font>
          </Text>
+         <Button id="farmerButton" fx:id="farmerButton" ellipsisString="" mnemonicParsing="false" onMouseClicked="#onFarmerButtonClicked" opacity="0.0" prefHeight="83.0" prefWidth="319.0" stylesheets="@style.css">
+            <tooltip>
+               <Tooltip autoHide="true" opacity="0.8" text="Farmer helps you getting food! Every 10 income from farmers x2">
+                  <font>
+                     <Font name="pix PixelFJVerdana12pt" size="8.0" />
+                  </font>
+               </Tooltip>
+            </tooltip>
+         </Button>
       </children>
    </AnchorPane>
-   <AnchorPane fx:id="gardenerButtonPane" disable="true" layoutX="14.0" layoutY="210.0" onMouseClicked="#onGardenerButtonClicked" prefHeight="76.0" prefWidth="325.0">
+   <AnchorPane id="gardenerButtonPane" fx:id="gardenerButtonPane" disable="true" layoutX="14.0" layoutY="210.0" onMouseClicked="#onGardenerButtonClicked" prefHeight="76.0" prefWidth="325.0">
       <children>
-         <Button layoutY="2.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="325.0" text="Button" visible="false" />
-         <Text layoutX="80.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gardener lvl." wrappingWidth="132.13671875">
+         <Text fill="#ea0000" layoutX="80.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gardener lvl." wrappingWidth="132.13671875">
             <font>
                <Font name="pix PixelFJVerdana12pt" size="12.0" />
             </font>
          </Text>
-         <Text layoutX="82.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:" wrappingWidth="45.75">
+         <Text fill="#ea0000" layoutX="81.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:" wrappingWidth="52.136752009391785">
             <font>
                <Font name="pix PixelFJVerdana12pt" size="10.0" />
             </font>
          </Text>
-         <Text layoutX="195.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fps:">
+         <Text fill="#ea0000" layoutX="81.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income/s:">
             <font>
                <Font name="pix PixelFJVerdana12pt" size="10.0" />
             </font>
          </Text>
+         <Text id="gardenerLevelLabel" fx:id="gardenerLevelLabel" fill="WHITE" layoutX="213.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="95.13671690225601">
+            <font>
+               <Font name="pix PixelFJVerdana12pt" size="12.0" />
+            </font>
+         </Text>
+         <Text id="gardenerUpCostLabel" fx:id="gardenerUpCostLabel" fill="WHITE" layoutX="128.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="720" wrappingWidth="176.13671439886093">
+            <font>
+               <Font name="pix PixelFJVerdana12pt" size="10.0" />
+            </font>
+         </Text>
+         <Text id="gardenerIncomeLabel" fx:id="gardenerIncomeLabel" fill="WHITE" layoutX="176.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="141.25">
+            <font>
+               <Font name="pix PixelFJVerdana12pt" size="10.0" />
+            </font>
+         </Text>
+         <Button id="gardenerButton" fx:id="gardenerButton" ellipsisString="" mnemonicParsing="false" onMouseClicked="#onGardenerButtonClicked" opacity="0.0" prefHeight="91.0" prefWidth="319.0" stylesheets="@style.css">
+            <tooltip>
+               <Tooltip autoHide="true" opacity="0.8" text="Better garden means more food. Every 5 levels income form gardeners x2">
+                  <font>
+                     <Font name="pix PixelFJVerdana12pt" size="8.0" />
+                  </font>
+               </Tooltip>
+            </tooltip></Button>
       </children>
    </AnchorPane>
+   <AnchorPane id="progressButtonPane" fx:id="progressButtonPane" disable="true" layoutX="14.0" layoutY="365.0" onMouseClicked="#onProgressButtonClicked" prefHeight="103.0" prefWidth="349.0" stylesheets="@style.css">
+      <children>
+         <Button id="sickleButton" ellipsisString="" mnemonicParsing="false" onMouseClicked="#onProgressButtonClicked" opacity="0.0" prefHeight="91.0" prefWidth="349.0" stylesheets="@style.css">
+            <tooltip>
+               <Tooltip autoHide="true" opacity="0.8" text="You have enough food to prgoress more into your adventure! Go get some material!">
+                  <font>
+                     <Font name="pix PixelFJVerdana12pt" size="8.0" />
+                  </font>
+               </Tooltip>
+            </tooltip>
+         </Button>
+         <Text fill="#fff500" layoutX="73.0" layoutY="76.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="PROGRESS!" textAlignment="CENTER" wrappingWidth="203.13671883940697">
+            <font>
+               <Font name="pix PixelFJVerdana12pt" size="16.0" />
+            </font>
+         </Text>
+      </children></AnchorPane>
+   <Text fill="#ffdd00" layoutX="46.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To progress max your team!" textAlignment="CENTER" wrappingWidth="284.0000036805868">
+      <font>
+         <Font name="pix PixelFJVerdana12pt" size="11.0" />
+      </font>
+   </Text>
+   <Text layoutX="354.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income/s:" wrappingWidth="116.13673424720764">
+      <font>
+         <Font name="pix PixelFJVerdana12pt" size="12.0" />
+      </font>
+   </Text>
+   <Text fx:id="foodIncomeLabel" layoutX="471.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="176.13670161366463">
+      <font>
+         <Font name="pix PixelFJVerdana12pt" size="12.0" />
+      </font>
+   </Text>
 
 </AnchorPane>

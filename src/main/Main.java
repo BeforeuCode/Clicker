@@ -11,11 +11,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/startpage.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.setResizable(false);
         primaryStage.show();
+
         primaryStage.setOnCloseRequest(e ->  {
 
             System.out.println("CLOSING ALL THREADS");
@@ -25,10 +26,6 @@ public class Main extends Application {
 
                  );
             }
-
-
-
-
     public static void main(String[] args) {
         launch(args);
     }

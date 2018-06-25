@@ -65,8 +65,6 @@
     -fx-background-size: 325 90;
     -fx-background-repeat: no-repeat;
     -fx-background-color: rgba(0,0,0,0);
-
-
 }
 #farmerButtonPane:hover{
     -fx-effect:dropshadow(gaussian, rgba(0, 8, 29, 1), 10, 0, 0, 0);
@@ -78,6 +76,7 @@
 #farmerButtonPane:disabled{
     -fx-opacity: 0.6;
 }
+
 
 #gardenerButtonPane{
 
@@ -96,6 +95,26 @@
     -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 30,0,0,1 );
 }
 #gardenerButtonPane:disabled{
+    -fx-opacity: 0.6;
+}
+
+#progressButtonPane{
+
+    -fx-background-image: url(../Resources/progressbutton.png);
+    -fx-background-size: 350 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+
+}
+#progressButtonPane:hover{
+    -fx-effect:dropshadow(gaussian, rgba(0, 8, 29, 1), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#progressButtonPane:pressed{
+    -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 30,0,0,1 );
+}
+#progressButtonPane:disabled{
     -fx-opacity: 0.6;
 }
 

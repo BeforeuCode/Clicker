@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import Models.GardenModel;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -17,31 +18,42 @@ public class GardenController {
 
 
 
-
     @FXML
-    private Text sickleLevelLabel;
+            private Text sickleLevelLabel;
     @FXML
-    private Text sickleUpCostLabel;
+            private Text sickleUpCostLabel;
     @FXML
-    private Text sickleIncomeLabel;
+            private Text sickleIncomeLabel;
     @FXML
-    private Text farmerLevelLabel;
+            private Text farmerLevelLabel;
     @FXML
-    private Text farmerUpCostLabel;
+            private Text farmerUpCostLabel;
     @FXML
-    private Text farmerIncomeLabel;
+            private Text farmerIncomeLabel;
     @FXML
-    private AnchorPane pane;
+            private AnchorPane pane;
     @FXML
-    private AnchorPane farmerButtonPane;
+            private AnchorPane farmerButtonPane;
     @FXML
-    private Text foodLabel;
+            private Text foodLabel;
     @FXML
-    private Button sickleButton;
+            private Button sickleButton;
     @FXML
-    private Text foodPerSecond;
+            private Text foodPerSecond;
     @FXML
-    private Button harvestButton;
+            private Button harvestButton;
+    @FXML
+            private  AnchorPane gardenerButtonPane;
+    @FXML
+            private Text gardenerIncomeLabel;
+    @FXML
+            private Text gardenerLevelLabel;
+    @FXML
+            private Text gardenerUpCostLabel;
+    @FXML
+            AnchorPane progressButtonPane;
+    @FXML
+            Text foodIncomeLabel;
 
     NumberFormat formatter = new DecimalFormat("0.00E00");
     NumberFormat formatterSmall = new DecimalFormat("#.00");
@@ -57,14 +69,18 @@ public class GardenController {
     private GardenModel model = new GardenModel();
     int initializeTimer = 0;
     int initializeIncomeTimer = 0;
-    int a = 0;
+
+    boolean farmerLevelMaxed = false;
+    boolean sickleLevelMaxed = false;
+    boolean gardenerLevelMaxed =  false;
+
     BigDecimal sicklecheck = new BigDecimal(24);
     BigDecimal farmerCheck = new BigDecimal(24);
 
     //CONSTRUCTORS
     public GardenController(GardenModel model, Text foodLabel, Text sickleLevelLabel, Text sickleUpCostLabel,
                             Text sickleIncomeLabel, AnchorPane pane, AnchorPane farmerButtonPane, DecimalFormat formatter,
-                            Text farmerIncomeLabel, Text farmerLevelLabel, Text farmerUpCostLabel) {
+                            Text farmerIncomeLabel, Text farmerLevelLabel, Text farmerUpCostLabel, AnchorPane progressButtonPane) {
 
         this.model = model;
         this.foodLabel = foodLabel;
@@ -80,6 +96,7 @@ public class GardenController {
         this.farmerIncomeLabel = farmerIncomeLabel;
         this.farmerLevelLabel= farmerLevelLabel;
         this.farmerUpCostLabel = farmerUpCostLabel;
+        this.progressButtonPane = progressButtonPane;
     }
 
     public GardenController() {
@@ -89,7 +106,7 @@ public class GardenController {
     /*1.07
 
     RATE      prod base         COST VASE
-    1.07      1                  4
+    1.07      1.5                4
     1.15      20                 60
     1.14      90                 720
     1.13      360                8640
@@ -103,36 +120,41 @@ public class GardenController {
     public void onSickleButtonClicked(MouseEvent mouseEvent) {
 
         pane.setDisable(true);
-//TODO set income and cost multiplayers
-        model.setSickleIncome(new BigDecimal(4).multiply((model.getSickleLevel().multiply(model.getSickleMultiplier() ))));//    multipler = 1^ level
+        //TODO set income and cost multiplayers
 
-       setSickleIncomeLabel();
+        model.setFood(model.getFood().subtract(model.getSickleUpCost()));
+        setFoodLabel();
 
-       model.setFood(model.getFood().subtract(model.getSickleUpCost()));
+        //SET SICKLE INCOME
+        model.setSickleIncome();
+         setSickleIncomeLabel();
 
-         setFoodLabel();
+         model.setSickleUpCost();
+         setSickleUpCostLabel();
 
-        model.setSickleUpCost(new BigDecimal(4).multiply(new BigDecimal(1.07).pow(model.getSickleLevel().intValueExact())));
+         model.setSickleLevel(model.getSickleLevel().add(new BigDecimal(1)));
+         setSickleLevelLabel();
 
-        setSickleUpCostLabel();
-        //TODO  set max level
+         //TODO  set max level
 
-        model.setSickleLevel(model.getSickleLevel().add(new BigDecimal(1)));
-        setSickleLevelLabel();
-
+      /*  System.out.println("Multipl: " + model.getSickleMultiplier());
+        System.out.println("Income: " + model.getSickleIncome());
+        System.out.println("Up Cost" + model.getSickleUpCost());*/
     }
     public void onFarmerButtonClicked(MouseEvent mouseEvent) {
 
 
         model.setFood(model.getFood().subtract(model.getFarmerUpCost()) );
+        setFoodLabel();
         farmerButtonPane.setDisable(true);
 
-
-        model.setFarmerIncome((model.getFarmerIncome().add(new BigDecimal(1))).multiply(new BigDecimal(2)));
+        model.setFarmerIncome();
         setFarmerIncomeLabel();
+
         model.setFarmerLevel(model.getFarmerLevel().add(new BigDecimal(1)));
         setFarmerLevelLabel();
-        model.setFarmerUpCost(model.getFarmerUpCost().multiply(new BigDecimal(2)));
+
+        model.setFarmerUpCost();
         setFarmerUpCostLabel();
 
 
@@ -143,6 +165,21 @@ public class GardenController {
         }
 
 
+    }
+
+    public void onGardenerButtonClicked(MouseEvent mouseEvent) {
+        model.setFood(model.getFood().subtract(model.getGardenerUpCost()) );
+        gardenerButtonPane.setDisable(true);
+        setFoodLabel();
+
+        model.setGardenerIncome();
+        setGardenerIncomeLabel();
+
+        model.setGardenerLevel(model.getGardenerLevel().add(new BigDecimal(1)));
+        setGardenerLevelLabel();
+
+        model.setGardenerUpCost();
+        setGardenerUpCostLabel();
     }
 
     //Harvest button
@@ -159,47 +196,77 @@ public class GardenController {
         }
     }
 // setFoodLabel Method
-        @FXML
-        private void setFoodLabel(){
+    @FXML
+    private void setFoodLabel() {
 
-        format(model.getFood());
-        foodLabel.setText(  format(model.getFood()));
+    format(model.getFood());
+    foodLabel.setText(format(model.getFood()));
+    }
+
+    @FXML
+    private void setFoodIncomeLabel(){
+        format(model.getFoodIncome());
+
+        foodIncomeLabel.setText( format(model.getFoodIncome()));
 
 
+    }
+    @FXML
+    private void setSickleLevelLabel() {
 
-        }
-@FXML
-private void setSickleLevelLabel(){
+        sickleLevelLabel.setText(model.getSickleLevel().toString());
+    }
 
-        sickleLevelLabel.setText( model.getSickleLevel().toString());
-}
-@FXML
-private void setSickleUpCostLabel(){
+    @FXML
+    private void setSickleUpCostLabel() {
         format(model.getSickleUpCost());
-        sickleUpCostLabel.setText(  format(model.getSickleUpCost()));
-}
-@FXML
-private void setSickleIncomeLabel(){
+        sickleUpCostLabel.setText(format(model.getSickleUpCost()));
+    }
+
+    @FXML
+    private void setSickleIncomeLabel() {
         format(model.getSickleIncome());
-        sickleIncomeLabel.setText( format(model.getSickleIncome()));
-}
-@FXML
-    public void setFarmerLevelLabel() {
+        sickleIncomeLabel.setText(format(model.getSickleIncome()));
+    }
+
+    @FXML
+    private void setFarmerLevelLabel() {
 
         farmerLevelLabel.setText(model.getFarmerLevel().toString());
     }
-@FXML
-    public void setFarmerUpCostLabel() {
+
+    @FXML
+    private void setFarmerUpCostLabel() {
         format(model.getFarmerUpCost());
         farmerUpCostLabel.setText(format(model.getFarmerUpCost()));
     }
-@FXML
-    public void setFarmerIncomeLabel() {
-    format(model.getFarmerIncome());
-    farmerIncomeLabel.setText(format(model.getFarmerIncome()));
+
+    @FXML
+    private void setFarmerIncomeLabel() {
+        format(model.getFarmerIncome());
+        farmerIncomeLabel.setText(format(model.getFarmerIncome()));
     }
 
-        public void timerMainStart () {
+    @FXML
+    private void setGardenerIncomeLabel() {
+        format(model.getGardenerIncome());
+        gardenerIncomeLabel.setText(format(model.getGardenerIncome()));
+    }
+
+    @FXML
+    private void setGardenerLevelLabel() {
+        gardenerLevelLabel.setText(model.getGardenerLevel().toString());
+    }
+
+    @FXML
+    private void setGardenerUpCostLabel() {
+        format(model.getGardenerUpCost());
+        gardenerUpCostLabel.setText(format(model.getGardenerUpCost()));
+    }
+
+
+      //Main timer starter method
+        private void timerMainStart () {
 
             timerMain.schedule(new TimerTask() {
 
@@ -213,36 +280,60 @@ private void setSickleIncomeLabel(){
 
                     a.compareTo(b) == 0 // a == b*/
 
-
+                    //Enable panes when enough food
                     if (model.getFood().compareTo(model.getSickleUpCost()) >=0 )
                         pane.setDisable(false);
                     else
                         pane.setDisable(true);
 
-                    //Sickle Multipler
-                    if(model.getSickleLevel().compareTo(sicklecheck) == 0 ){
-                        sicklecheck = sicklecheck.add(new BigDecimal(25));
-                        model.setSickleMultiplier(model.getSickleMultiplier().multiply(new BigDecimal(2)));
+                    if(model.getFood().compareTo(model.getFarmerUpCost()) >= 0)
+                        farmerButtonPane.setDisable(false);
+                    else
+                        farmerButtonPane.setDisable(true);
+
+                    if(model.getFood().compareTo(model.getGardenerUpCost()) >= 0)
+                        gardenerButtonPane.setDisable(false);
+                    else
+                        gardenerButtonPane.setDisable(true);
+
+                    if(sickleLevelMaxed && farmerLevelMaxed  && gardenerLevelMaxed ) {
+                        progressButtonPane.setDisable(false);
+                    }
+
+
 
 
                     // Farmer Multipler
-                    }
-                    if(model.getFarmerLevel().compareTo(farmerCheck) == 0 ) {
-                        farmerCheck = farmerCheck.add(new BigDecimal(25));
-                        model.setFarmerMultiplier(model.getFarmerMultiplier().multiply(new BigDecimal(2)));
-                    }
+
+
 
 
                     //Max level Sickle
-                    if(model.getSickleLevel()== model.getMaxSickleLevel() ){
+                    if(model.getSickleLevel().equals(model.getMaxSickleLevel()) ){
                         pane.setDisable(true);
                         sickleLevelLabel.setText("Max");
-                        sickleUpCostLabel.setText("Max");    }
+                        sickleUpCostLabel.setText("Max");
+                        pane.setOpacity(1);
+                        sickleLevelMaxed = true;
+                    }
 
-                     if(model.getFood().compareTo(model.getFarmerUpCost()) >= 0)
-                        farmerButtonPane.setDisable(false);
-                     else
+                    if(model.getFarmerLevel().equals(model.getMaxFarmerLevel()) ){
                         farmerButtonPane.setDisable(true);
+                        farmerLevelLabel.setText("Max");
+                        farmerUpCostLabel.setText("Max");
+                        farmerButtonPane.setOpacity(1);
+                        farmerLevelMaxed = true;
+                    }
+
+                    if(model.getGardenerLevel().equals(model.getMaxGardenerLevel()) ){
+                        gardenerButtonPane.setDisable(true);
+                        gardenerLevelLabel.setText("Max");
+                        gardenerUpCostLabel.setText("Max");
+                        gardenerButtonPane.setOpacity(1);
+                        gardenerLevelMaxed =true;
+                    }
+
+
 
 
 
@@ -255,7 +346,7 @@ private void setSickleIncomeLabel(){
 
 
 
-    public void timerIncomeStart () {
+    private void timerIncomeStart () {
 
         timerIncome.schedule(new TimerTask() {
 
@@ -263,8 +354,9 @@ private void setSickleIncomeLabel(){
             public void run() {
 
 
-             model.setFood(model.getFood().add(model.getFarmerIncome()) );
+             model.setFood(model.getFood().add(model.getFarmerIncome()).add(model.getGardenerIncome()) );
              setFoodLabel();
+             setFoodIncomeLabel();
 
             }
 
@@ -274,7 +366,7 @@ private void setSickleIncomeLabel(){
 
         //formatting scientific notation
 
-    public String format(BigDecimal a){
+    private String format(BigDecimal a){
             String b= " ";
         if (a.compareTo(new BigDecimal(10000)) == 1 ){
 
@@ -286,7 +378,14 @@ private void setSickleIncomeLabel(){
 
     }
 
-    public void onGardenerButtonClicked(MouseEvent mouseEvent) {
+
+    public void onProgressButtonClicked(MouseEvent mouseEvent) {
+
+
+
+
+
+
     }
 }
 

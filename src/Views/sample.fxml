@@ -4,24 +4,31 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane fx:id="main" maxHeight="600" maxWidth="800" minHeight="600" minWidth="800" prefHeight="600" prefWidth="800" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller">
+<TabPane id="tabPane" fx:id="tabPane" maxHeight="600" maxWidth="800" minHeight="600" minWidth="800" prefHeight="600" prefWidth="800" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Controller">
   <tabs>
-    <Tab closable="false" disable="true" text="Kopalnia">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
-    <Tab closable="false" disable="true" text="Las">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
-      <Tab text="Garden">
+      <Tab id="gardenTab" closable="false" text="Garden">
 
           <content>
-              <fx:include fx:id="garden" source="garden.fxml" />   <!--  view of garden tab -->
+              <AnchorPane id="gardenPane" fx:id="gardenPane" maxHeight="600" maxWidth="800" minHeight="600" minWidth="800" prefHeight="600" prefWidth="800" stylesheets="@style.css" />   <!--  view of garden tab -->
           </content>
 
       </Tab>
+
+    <Tab id="forestTab" fx:id="forestTab" closable="false" text="Forest">
+      <content>
+
+
+        <AnchorPane id="forestPane" fx:id="forestPane" stylesheets="@styleForest.css" />  <!--  view of garden tab -->
+
+
+      </content>
+    </Tab>
+    <Tab fx:id="mineTab" closable="false" text="Mine">
+      <content>
+
+          <AnchorPane id="minePane" fx:id="minePane" stylesheets="@styleMine.css" />  <!--  view of garden tab -->
+
+      </content>
+    </Tab>
   </tabs>
 </TabPane>

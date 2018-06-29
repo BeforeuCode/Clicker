@@ -1,0 +1,141 @@
+#minePane{
+    -fx-background-image: url("../Resources/minebackground.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: stretch;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+#pickaxeButton
+{
+    -fx-graphic: url(../Resources/pickaxe.png);
+    position: absolute;
+    -fx-graphic-size: stretch;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+
+#pickaxeButton:hover{
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+    -fx-cursor: hand;}
+
+#pickaxeButton:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 0,0,0,1 );
+    -fx-padding: 5,5,5,5;
+    -fx-rotate: 30;
+
+
+
+
+}
+
+#torchUpgradeButton{
+    -fx-background-image: url(../Resources/lampButton.png);
+
+    -fx-background-size: 325 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+#torchUpgradeButton:hover{
+    -fx-effect:dropshadow(gaussian, rgb(15, 235, 255), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#torchUpgradeButton:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(15, 235, 255, 0.92), 30,0,0,1 );
+
+
+}
+#torchUpgradeButton:disabled {
+    -fx-opacity: 0.7;
+}
+
+
+
+
+
+#minerButton{
+    -fx-background-image: url(../Resources/minerButton.png);
+
+    -fx-background-size: 325 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+#minerButton:hover{
+    -fx-effect:dropshadow(gaussian, rgb(15, 235, 255), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#minerButton:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(15, 235, 255, 0.92), 30,0,0,1 );
+
+
+}
+#minerButton:disabled {
+    -fx-opacity: 0.7;
+}
+
+#mageButton{
+    -fx-background-image: url(../Resources/mageButton.png);
+
+    -fx-background-size: 325 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+#mageButton:hover{
+    -fx-effect:dropshadow(gaussian, rgb(15, 235, 255), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#mageButton:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(15, 235, 255, 0.92), 30,0,0,1 );
+
+
+}
+#mageButton:disabled {
+    -fx-opacity: 0.7;
+}
+
+#monsterButton{
+    -fx-background-image: url(../Resources/monsterButton.png);
+
+    -fx-background-size: 325 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+#monsterButton:hover{
+    -fx-effect:dropshadow(gaussian, rgb(15, 235, 255), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#monsterButton:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(15, 235, 255, 0.92), 30,0,0,1 );
+
+
+}
+#monsterButton:disabled {
+    -fx-opacity: 0.7;
+}
+
+#mineProgressButton{
+    -fx-background-image: url(../Resources/progressMineButton.png);
+
+    -fx-background-size: 325 100;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(0,0,0,0);
+
+}
+#mineProgressButton:hover{
+    -fx-effect:dropshadow(gaussian, rgb(15, 235, 255), 10, 0, 0, 0);
+    -fx-cursor: hand;
+}
+#mineProgressButton:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(15, 235, 255, 0.92), 30,0,0,1 );
+
+
+}
+#mineProgressButton:disabled {
+    -fx-opacity: 0.7;
+}

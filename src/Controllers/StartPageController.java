@@ -20,6 +20,8 @@ public class StartPageController implements Initializable {
     @FXML
     private Button newGameButton;
 
+    @FXML
+    private Controller controller;
 
 
 
@@ -44,9 +46,11 @@ public class StartPageController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
     }
 }

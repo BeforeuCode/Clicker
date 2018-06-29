@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="forestPane" prefHeight="580.0" prefWidth="800.0" stylesheets="@styleForest.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="axeButton" fx:id="axeButton" layoutX="543.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#onAxeClicked" prefHeight="142.0" prefWidth="188.0" stylesheets="@styleForest.css" />
+      <AnchorPane id="axeUpgradeButton" fx:id="axeUpgradeButton" disable="true" layoutX="14.0" layoutY="10.0" minHeight="93.0" minWidth="326.0" prefHeight="96.0" prefWidth="326.0" stylesheets="@styleForest.css">
+         <children>
+            <Text fill="#00a2ff" layoutX="81.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hatchet lvl.">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="#00a2ff" layoutX="81.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text fill="#00a2ff" layoutX="81.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text id="axeLevelLabel" fx:id="axeLevelLabel" layoutX="207.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Text id="axeUpCostLabel" fx:id="axeUpCostLabel" layoutX="131.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text id="axeIncomeLabel" fx:id="axeIncomeLabel" layoutX="162.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Button layoutY="-2.0" mnemonicParsing="false" onMouseClicked="#onAxeUpgradeButtonClicked" opacity="0.0" prefHeight="96.0" prefWidth="326.0">
+               <tooltip>
+                  <Tooltip text="Hatcjed foo tooltip" />
+               </tooltip>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane id="elfButton" fx:id="elfButton" disable="true" layoutX="14.0" layoutY="118.0" minHeight="93.0" minWidth="338.0" prefHeight="116.0" prefWidth="340.0" stylesheets="@styleForest.css">
+         <children>
+            <Text fill="#02b502" layoutX="84.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elf lvl.">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="#02b502" layoutX="82.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text fill="#02b502" layoutX="83.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text id="elfLevelLabel" fx:id="elfLevelLabel" layoutX="144.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Text id="elfUpCostLabel" fx:id="elfUpCostLabel" layoutX="135.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text id="elfIncomeLabel" fx:id="elfIncomeLabel" layoutX="163.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Button disable="false" mnemonicParsing="false" onMouseClicked="#onElfUpgradeButtonClicked" opacity="0.0" prefHeight="94.0" prefWidth="319.0">
+               <tooltip>
+                  <Tooltip text="Elf foo tooltip">
+                     <font>
+                        <Font name="pix PixelFJVerdana12pt" size="12.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane id="lumberjackButton" fx:id="lumberjackButton" disable="true" layoutX="14.0" layoutY="228.0" minHeight="93.0" minWidth="326.0" prefHeight="109.0" prefWidth="326.0" stylesheets="@styleForest.css">
+         <children>
+            <Text fill="#bf0180" layoutX="83.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lumberjack lvl.">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="#bf0180" layoutX="83.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text fill="#bf0180" layoutX="83.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text fx:id="lumberjackIncomeLabel" layoutX="164.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text fx:id="lumberjackUpCostLabel" layoutX="135.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="720" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text fx:id="lumberjackLevelLabel" layoutX="256.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="64.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Button disable="false" layoutX="9.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#onLumberjackUpgradeButtonClicked" opacity="0.0" prefHeight="94.0" prefWidth="319.0">
+               <tooltip>
+                  <Tooltip text="Lumberjack foo tooltip">
+                     <font>
+                        <Font name="pix PixelFJVerdana12pt" size="12.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane id="woodcutterButton" fx:id="woodcutterButton" disable="true" layoutX="14.0" layoutY="337.0" minHeight="93.0" minWidth="326.0" prefHeight="109.0" prefWidth="326.0" stylesheets="@styleForest.css">
+         <children>
+            <Text fill="#feff00" layoutX="78.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Woodcutter lvl.">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="#fffa00" layoutX="78.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text fill="#fffa00" layoutX="78.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cost:">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text id="woodcutterLevelLabel" fx:id="woodcutterLevelLabel" layoutX="250.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="13.0" />
+               </font>
+            </Text>
+            <Text id="woodcutterIncomeLabel" fx:id="woodcutterIncomeLabel" layoutX="159.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Text id="woodcutterUpCostLabel" fx:id="woodcutterUpCostLabel" layoutX="128.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8640" wrappingWidth="111.625">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="11.0" />
+               </font>
+            </Text>
+            <Button disable="false" mnemonicParsing="false" onMouseClicked="#onWoodcutterUpgradeButtonClicked" opacity="0.0" prefHeight="94.0" prefWidth="319.0">
+               <tooltip>
+                  <Tooltip text="Woodcutter foo tooltip">
+                     <font>
+                        <Font name="pix PixelFJVerdana12pt" size="12.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+         </children></AnchorPane>
+      <Text fill="WHITE" layoutX="400.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wood:">
+         <font>
+            <Font name="pix PixelFJVerdana12pt" size="21.0" />
+         </font>
+      </Text>
+      <Text id="woodLabel" fx:id="woodLabel" fill="WHITE" layoutX="526.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="248.13671875">
+         <font>
+            <Font name="pix PixelFJVerdana12pt" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="402.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Income/s:" wrappingWidth="104.13672758638859">
+         <font>
+            <Font name="pix PixelFJVerdana12pt" size="11.0" />
+         </font>
+      </Text>
+      <Text id="woodIncomeLabel" fx:id="woodIncomeLabel" fill="WHITE" layoutX="508.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="118.12500167638063">
+         <font>
+            <Font name="pix PixelFJVerdana12pt" size="11.0" />
+         </font>
+      </Text>
+      <AnchorPane id="progressForestButton" fx:id="forestProgressButton" disable="true" layoutX="15.0" layoutY="447.0" prefHeight="109.0" prefWidth="340.0" stylesheets="@styleForest.css">
+         <children>
+            <Text fx:id="forestProgressLabel2" fill="#8d5555" layoutX="74.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unlock the Mines">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="forestProgressLabel1" fill="#8a5151" layoutX="71.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max your team to">
+               <font>
+                  <Font name="pix PixelFJVerdana12pt" size="12.0" />
+               </font>
+            </Text>
+            <Button disable="false" layoutX="2.0" mnemonicParsing="false" onMouseClicked="#onForestProgressButtonClicked" opacity="0.0" prefHeight="96.0" prefWidth="326.0">
+               <tooltip>
+                  <Tooltip text="Forest progress foo tooltip">
+                     <font>
+                        <Font name="pix PixelFJVerdana12pt" size="12.0" />
+                     </font>
+                  </Tooltip>
+               </tooltip>
+            </Button>
+         </children></AnchorPane>
+
+
+   </children>
+</AnchorPane>

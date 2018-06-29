@@ -4,12 +4,14 @@ import java.math.BigDecimal;
 
 public class GardenModel {
 
+    boolean gardenerIncomeInitializer = true;
     private BigDecimal sickleLevelCheck = new BigDecimal(24);
     private BigDecimal farmerLevelCheck = new BigDecimal(9);
     private BigDecimal gardenerLevelCheck = new BigDecimal(5);
 
     private BigDecimal food = new BigDecimal(0);   //2 ^64
     private BigDecimal foodIncome;
+    public BigDecimal axe = new BigDecimal(0);
 
 
     //Income
@@ -34,6 +36,8 @@ public class GardenModel {
     //multipliers
     private BigDecimal sickleMultiplier = new BigDecimal(1).pow(sickleLevel.intValueExact());
     private BigDecimal farmerMultiplier = new BigDecimal(1).pow(farmerLevel.intValueExact());
+
+
 
 
 
@@ -77,7 +81,9 @@ public class GardenModel {
             farmerIncomeInitializer = false;
         }
 
-        this.farmerIncome = (farmerIncome.add(new BigDecimal(10)));
+            this.farmerIncome = (farmerIncome.add(new BigDecimal(10)));
+
+
 
             if(farmerLevel.compareTo(farmerLevelCheck) == 0 ) {
                 farmerLevelCheck = farmerLevelCheck.add(new BigDecimal(10));
@@ -131,14 +137,15 @@ public class GardenModel {
     //edited
     public void setGardenerIncome() {
 
-        boolean gardenerIncomeInitializer = true;
+
 
         if(gardenerIncomeInitializer){
-            farmerIncome.add(new BigDecimal(10));
+            gardenerIncome.add(new BigDecimal(30));
             gardenerIncomeInitializer = false;
         }
 
-        this.gardenerIncome = (gardenerIncome.add(new BigDecimal(30)));
+
+            this.gardenerIncome = (gardenerIncome.add(new BigDecimal(30)));
 
         if(gardenerLevel.compareTo(gardenerLevelCheck) == 0 ) {
             gardenerLevelCheck = gardenerLevelCheck.add(new BigDecimal(5));
@@ -163,13 +170,7 @@ public class GardenModel {
         this.gardenerUpCost =new BigDecimal(720).multiply(new BigDecimal(1.70).pow(gardenerLevel.intValueExact()));;
     }
 
-    public BigDecimal getSickleMultiplier() { return sickleMultiplier; }
 
-    public void setSickleMultiplier(BigDecimal sickleMultiplier) { this.sickleMultiplier = sickleMultiplier; }
-
-    public BigDecimal getFarmerMultiplier() {     return farmerMultiplier;   }
-
-    public void setFarmerMultiplier(BigDecimal farmerMultipler) {    this.farmerMultiplier = farmerMultipler;    }
 
     public BigDecimal getMaxFarmerLevel() {
         return maxFarmerLevel;
@@ -188,4 +189,11 @@ public class GardenModel {
     }
 
 
+    public BigDecimal getAxe() {
+        return axe;
+    }
+
+    public void setAxe(BigDecimal axe) {
+        this.axe = axe;
+    }
 }

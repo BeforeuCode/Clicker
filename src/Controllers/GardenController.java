@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.MineModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -7,7 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import Models.GardenModel;
 
-import javax.swing.*;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -15,6 +15,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GardenController {
+
+
 
 
 
@@ -55,8 +57,30 @@ public class GardenController {
     @FXML
             Text foodIncomeLabel;
 
+    @FXML
+    Controller controller;
+    @FXML
+    MineController forestController;
+
+
+   MineModel forestModel;
+
+    public GardenController(Controller controller) {
+        this.controller = controller;
+    }
+
+
+    public void setController(Controller controller) {
+        this.controller = controller ;
+    }
+
+
+
+
+
     NumberFormat formatter = new DecimalFormat("0.00E00");
     NumberFormat formatterSmall = new DecimalFormat("#.00");
+
 
     Timer timerMain = new Timer(true);
 
@@ -205,7 +229,6 @@ public class GardenController {
 
     @FXML
     private void setFoodIncomeLabel(){
-        format(model.getFoodIncome());
 
         foodIncomeLabel.setText( format(model.getFoodIncome()));
 
@@ -219,13 +242,12 @@ public class GardenController {
 
     @FXML
     private void setSickleUpCostLabel() {
-        format(model.getSickleUpCost());
-        sickleUpCostLabel.setText(format(model.getSickleUpCost()));
+          sickleUpCostLabel.setText(format(model.getSickleUpCost()));
     }
 
     @FXML
     private void setSickleIncomeLabel() {
-        format(model.getSickleIncome());
+
         sickleIncomeLabel.setText(format(model.getSickleIncome()));
     }
 
@@ -237,8 +259,7 @@ public class GardenController {
 
     @FXML
     private void setFarmerUpCostLabel() {
-        format(model.getFarmerUpCost());
-        farmerUpCostLabel.setText(format(model.getFarmerUpCost()));
+         farmerUpCostLabel.setText(format(model.getFarmerUpCost()));
     }
 
     @FXML
@@ -379,14 +400,49 @@ public class GardenController {
     }
 
 
+
+    // Aktywowanie buttona axeButton w Kontrolerze MineController ktory ma widok z Forest.xml
+    @FXML
     public void onProgressButtonClicked(MouseEvent mouseEvent) {
 
 
+test();
 
 
 
+
+        //TODO iplement progress button
+        //TODO add message after progressing the first map
+
+        //JOptionPane.showMessageDialog(null,"Hello message","ok",JOptionPane.PLAIN_MESSAGE);
 
     }
+
+
+
+    public void test(){
+
+    /*    try {
+            FXMLLoader loader = new FXMLLoader();
+
+            loader.setLocation(MineController.class.getResource("/Views/forest.fxml"));
+
+            AnchorPane root =  loader.load();
+
+            forestController = loader.getController();
+
+
+            forestController.getAxeButton().setDisable(false);
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+controller.button();
+    }
+
+
 }
 
 

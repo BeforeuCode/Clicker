@@ -1,10 +1,114 @@
-#garden{
+#gardenPane{
     -fx-background-image: url("../Resources/background.jpg");
     -fx-background-repeat: stretch;
     -fx-background-size: stretch;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
 }
+
+#gardenTab{
+
+    -fx-pref-width: 200;
+    -fx-pref-high: 60;
+
+    -fx-background-image: url("../Resources/gardenTabBackground.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: stretch;
+
+    -fx-cursor: hand;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+
+
+#forestTab{
+   -fx-pref-width: 200;
+    -fx-pref-high: 60;
+    -fx-alignment: center;
+    -fx-background-image: url("../Resources/gardenTabBackground.png");
+    -fx-background-position: center ;
+    -fx-background-size: cover ;
+    -fx-cursor: hand;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+
+}
+
+#mineTab{
+    -fx-pref-width: 200;
+    -fx-pref-high: 60;
+    -fx-alignment: center;
+    -fx-background-image: url("../Resources/gardenTabBackground.png");
+    -fx-background-position: center ;
+    -fx-background-size: cover ;
+    -fx-cursor: hand;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+
+}
+#tabPane>*.tab-header-area>*.tab-header-background
+ {
+    -fx-alignment: center;
+    -fx-background-image: url("../Resources/header.png");
+    -fx-background-position: center ;
+
+    }
+#forestTab > .tab-container > .tab-label {
+
+    -fx-alignment: center;
+
+
+}
+
+#forestTab:selected{
+
+    -fx-background-image: url("../Resources/gardenTabBackgroundSelected.png");
+
+}
+
+#gardenTab:selected{
+    -fx-background-image: url("../Resources/gardenTabBackgroundSelected.png");
+
+}
+#mineTab:selected{
+
+    -fx-background-image: url("../Resources/gardenTabBackgroundSelected.png");
+
+}
+
+
+
+#gardenTab > .tab-container > .tab-label {
+
+
+    -fx-alignment: center;
+
+
+}
+
+.tab .tab-label {
+
+
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-font-family: "pix PixelFJVerdana12pt" ;
+    -fx-font-size: 11px; /* all the same except this newly added one */
+    -fx-font-weight: BOLD;
+    -fx-font-smoothing-type: LCD ;
+}
+
+
+.tab {
+
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-alignment: CENTER;}
+
 
 
 #sickleButton:pressed #pane:pressed{
@@ -113,10 +217,12 @@
 }
 #progressButtonPane:pressed{
     -fx-effect: dropshadow( gaussian , rgba(0, 8, 29, 0.92), 30,0,0,1 );
+
 }
 #progressButtonPane:disabled{
     -fx-opacity: 0.6;
 }
+
 
 
 

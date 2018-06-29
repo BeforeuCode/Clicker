@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -162,29 +163,8 @@ public class MineController {
             @Override
             public void run() {
 
-                //axe
-                if(mineModel.getOre().compareTo(mineModel.getTorchUpCost()) >= 0)
-                    torchUpgradeButton.setDisable(false);
-                else
-                    torchUpgradeButton.setDisable(true);
 
-                //elf
-                if(mineModel.getOre().compareTo(mineModel.getMinerUpCost()) >= 0)
-                    minerButton.setDisable(false);
-                else
-                    minerButton.setDisable(true);
 
-                //lumberjack
-                if(mineModel.getOre().compareTo(mineModel.getMageUpCost()) >= 0)
-                    mageButton.setDisable(false);
-                else
-                    mageButton.setDisable(true);
-
-                //woodcutter
-                if(mineModel.getOre().compareTo(mineModel.getMonsterUpCost()) >= 0)
-                    monsterButton.setDisable(false);
-                else
-                    monsterButton.setDisable(true);
 
 
 
@@ -196,6 +176,12 @@ public class MineController {
                     torchLevelMaxed = true;
 
                 }
+                else{
+                    if(mineModel.getOre().compareTo(mineModel.getTorchUpCost()) >= 0)
+                        torchUpgradeButton.setDisable(false);
+                    else
+                        torchUpgradeButton.setDisable(true);
+                }
 
 
                 if(mineModel.getMinerLevel().equals(mineModel.getMinerMaxLevel())){
@@ -206,12 +192,25 @@ public class MineController {
                     monsterLevelMaxed = true;
 
                 }
+                else{
+                    if(mineModel.getOre().compareTo(mineModel.getMinerUpCost()) >= 0)
+                        minerButton.setDisable(false);
+                    else
+                        minerButton.setDisable(true);
+
+                }
                 if(mineModel.getMageLevel().equals(mineModel.getMageMaxLevel())){
                     mageButton.setDisable(true);
                     mageLevelLabel.setText("Max");
                     mageUpCostLabel.setText("Max");
                     mageButton.setOpacity(1);
                     minerLevelMaxed = true;
+
+                }else{
+                    if(mineModel.getOre().compareTo(mineModel.getMageUpCost()) >= 0)
+                        mageButton.setDisable(false);
+                    else
+                        mageButton.setDisable(true);
 
                 }
                 if(mineModel.getMonsterLevel().equals(mineModel.getMonsterMaxLevel())){
@@ -220,6 +219,13 @@ public class MineController {
                     monsterUpCostLabel.setText("Max");
                     monsterButton.setOpacity(1);
                     mageLevelMaxed = true;
+
+                }else{
+                    if(mineModel.getOre().compareTo(mineModel.getMonsterUpCost()) >= 0)
+                        monsterButton.setDisable(false);
+                    else
+                        monsterButton.setDisable(true);
+
 
                 }
 
@@ -387,7 +393,7 @@ public class MineController {
     @FXML
     private void onTorchUpgradeButtonClicked(MouseEvent mouseEvent) {
 
-
+        System.out.println("torch button test");
 
         torchUpgradeButton.setDisable(true);
 
@@ -457,14 +463,27 @@ public class MineController {
 
     }
 
+    @FXML
+    public void onCheatMineButtonClicked(MouseEvent mouseEvent) {
 
+        mineModel.setOre(new BigDecimal(999999999));
+
+    }
     //Progress Button
     @FXML
     private void onMineProgressButtonClicked(MouseEvent mouseEvent) {
 
 
-        //controller.mineTab.setDisable(false);
+        controller.kingdomTab.setDisable(false);
+        controller.kingdomTab.setText("KINGDOM!");
 
+
+
+        JOptionPane.showMessageDialog(null,"Yo have got everything you need!" +
+                        "Your deam soon will come true! Build your kingdom now!",
+                "Good Job!",JOptionPane.PLAIN_MESSAGE);
+
+        controller.tabPane.getSelectionModel().select(controller.kingdomTab);
 
     }
 

@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import Models.GardenModel;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -302,24 +303,12 @@ public class GardenController {
                     a.compareTo(b) == 0 // a == b*/
 
                     //Enable panes when enough food
-                    if (model.getFood().compareTo(model.getSickleUpCost()) >=0 )
-                        pane.setDisable(false);
-                    else
-                        pane.setDisable(true);
 
-                    if(model.getFood().compareTo(model.getFarmerUpCost()) >= 0)
-                        farmerButtonPane.setDisable(false);
-                    else
-                        farmerButtonPane.setDisable(true);
 
-                    if(model.getFood().compareTo(model.getGardenerUpCost()) >= 0)
-                        gardenerButtonPane.setDisable(false);
-                    else
-                        gardenerButtonPane.setDisable(true);
 
-                    if(sickleLevelMaxed && farmerLevelMaxed  && gardenerLevelMaxed ) {
-                        progressButtonPane.setDisable(false);
-                    }
+
+
+
 
 
 
@@ -336,6 +325,12 @@ public class GardenController {
                         sickleUpCostLabel.setText("Max");
                         pane.setOpacity(1);
                         sickleLevelMaxed = true;
+                    }else{
+
+                        if (model.getFood().compareTo(model.getSickleUpCost()) >=0 )
+                            pane.setDisable(false);
+                        else
+                            pane.setDisable(true);
                     }
 
                     if(model.getFarmerLevel().equals(model.getMaxFarmerLevel()) ){
@@ -344,6 +339,12 @@ public class GardenController {
                         farmerUpCostLabel.setText("Max");
                         farmerButtonPane.setOpacity(1);
                         farmerLevelMaxed = true;
+                    }else{
+
+                        if(model.getFood().compareTo(model.getFarmerUpCost()) >= 0)
+                            farmerButtonPane.setDisable(false);
+                        else
+                            farmerButtonPane.setDisable(true);
                     }
 
                     if(model.getGardenerLevel().equals(model.getMaxGardenerLevel()) ){
@@ -352,9 +353,19 @@ public class GardenController {
                         gardenerUpCostLabel.setText("Max");
                         gardenerButtonPane.setOpacity(1);
                         gardenerLevelMaxed =true;
+                    }else{
+
+                        if(model.getFood().compareTo(model.getGardenerUpCost()) >= 0)
+                            gardenerButtonPane.setDisable(false);
+                        else
+                            gardenerButtonPane.setDisable(true);
                     }
 
 
+
+                    if(sickleLevelMaxed && farmerLevelMaxed  && gardenerLevelMaxed ) {
+                        progressButtonPane.setDisable(false);
+                    }
 
 
 
@@ -406,41 +417,29 @@ public class GardenController {
     public void onProgressButtonClicked(MouseEvent mouseEvent) {
 
 
-test();
+       controller.forestTab.setDisable(false);
 
 
 
+        JOptionPane.showMessageDialog(null,"You have collected enough food and trained your people. " +
+                        "Now you can enter the forest when you will get wood for future adventures. Forest is now unlocked",
+                "Good Job!",JOptionPane.PLAIN_MESSAGE);
 
-        //TODO iplement progress button
-        //TODO add message after progressing the first map
 
-        //JOptionPane.showMessageDialog(null,"Hello message","ok",JOptionPane.PLAIN_MESSAGE);
-
+        controller.tabPane.getSelectionModel().select(controller.forestTab);
     }
 
+@FXML
+    public void  onCheatButtonClicked(MouseEvent mouseEvent){
 
+        model.setFood(new BigDecimal(999999999));
 
-    public void test(){
-
-    /*    try {
-            FXMLLoader loader = new FXMLLoader();
-
-            loader.setLocation(MineController.class.getResource("/Views/forest.fxml"));
-
-            AnchorPane root =  loader.load();
-
-            forestController = loader.getController();
-
-
-            forestController.getAxeButton().setDisable(false);
+}
 
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-controller.button();
-    }
+
+
 
 
 }

@@ -8,9 +8,11 @@ import javafx.scene.Parent;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,11 +30,11 @@ public class StartPageController implements Initializable {
 
 
     @FXML
-    private void newGameButtonOnClick(ActionEvent event) throws IOException {
+    private void newGameButtonOnClick(MouseEvent mouseEvent) throws IOException {
 
-        //TODO Wymylsec jakas historyjke
-        //TODO Stworzyc strone startową
-        //JOptionPane.showMessageDialog(null,"Heello message","ok",JOptionPane.PLAIN_MESSAGE);
+
+        JOptionPane.showMessageDialog(null,"You are young ambitious lord that has been banished from fathers kingdom. " +
+                "Your mission is to get people that will follow you and prepare to build your own kingdom and become a KING! GOOD LUCK!  ","Your journey awaits!",JOptionPane.PLAIN_MESSAGE);
 
 
             Stage stage;

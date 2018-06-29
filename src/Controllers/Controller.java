@@ -4,7 +4,9 @@ package Controllers;
 import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -37,6 +39,16 @@ MineController mineController;
    Tab forestTab;
    @FXML
    Tab mineTab;
+   @FXML
+   Tab kingdomTab;
+   @FXML
+    AnchorPane mineProgressButton;
+   @FXML
+   AnchorPane forestProgressButton;
+   @FXML
+   AnchorPane progressButtonPane;
+   @FXML
+    TabPane tabPane;
 
 
 
@@ -73,10 +85,7 @@ MineController mineController;
    }
 
 
-   public void button(){
-       forestTab.setDisable(false);
 
-   }
 
     }
 
